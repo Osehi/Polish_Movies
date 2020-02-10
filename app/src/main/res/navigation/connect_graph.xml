@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/connect_graph">
+
+    <fragment
+        android:id="@+id/movieDetails"
+        android:name="com.polish.polishmovies.activity.MovieDetails"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details" />
+    <fragment
+        android:id="@+id/allMovies2"
+        android:name="com.polish.polishmovies.activity.AllMovies"
+        android:label="fragment_all_movies"
+        tools:layout="@layout/fragment_all_movies" >
+        <action
+            android:id="@+id/action_allMovies2_to_movieDetails"
+            app:destination="@id/movieDetails" />
+        <action
+            android:id="@+id/action_allMovies2_to_favouriteMovies"
+            app:destination="@id/favouriteMovies" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteMovies"
+        android:name="com.polish.polishmovies.activity.FavouriteMovies"
+        android:label="fragment_favourite_movies"
+        tools:layout="@layout/fragment_favourite_movies" >
+        <action
+            android:id="@+id/action_favouriteMovies_to_movieDetails"
+            app:destination="@id/movieDetails" />
+    </fragment>
+</navigation>
