@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceBuilder {
 
     // the url
-    private const val URL = "https://api.themoviedb.org/3/discover/movie"
+    private const val URL = "https://api.themoviedb.org/3/discover/"
 
     // create okHttp client
     private val okHttp = OkHttpClient.Builder()

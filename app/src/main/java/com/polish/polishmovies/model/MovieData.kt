@@ -8,15 +8,33 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class MovieData(
 
-    var id: Int,
+    val adult: Boolean,
 
-    var posterPath: String,
+    val backdropPath: String,
 
-    var releaseDate: String,
+    val genreIds: List<Int>,
 
-    var title: String,
+    val id: Int,
 
-    var voteAverage: Int
+    val originalLanguage: String,
+
+    val originalTitle: String,
+
+    val overview: String,
+
+    val popularity: Double,
+
+    val posterPath: String,
+
+    val releaseDate: String,
+
+    val title: String,
+
+    val video: Boolean,
+
+    val voteAverage: Int,
+
+    val voteCount: Int
 
 ):Parcelable {
 //    var isFavourite:Boolean?
