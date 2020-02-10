@@ -1,4 +1,4 @@
-package com.polish.polishmovies.activity
+package com.polish.polishmovies.ui
 
 
 import android.os.Bundle
@@ -12,14 +12,14 @@ import com.polish.polishmovies.R
 /**
  * A simple [Fragment] subclass.
  */
-class AllMovies : Fragment() {
+class Details : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_movies, container, false)
+        return inflater.inflate(R.layout.fragment_details, container, false)
     }
 
 

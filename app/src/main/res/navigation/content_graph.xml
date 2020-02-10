@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_graph"
+    app:startDestination="@id/tabHost">
+    <fragment
+        android:id="@+id/tabHost"
+        android:name="com.polish.polishmovies.ui.TabHost"
+        android:label="Movie Viewer"
+        tools:layout="@layout/fragment_tab_host">
+        <action
+            android:id="@+id/action_tabHost_to_details2"
+            app:destination="@id/details2" />
+    </fragment>
+    <fragment
+        android:id="@+id/details2"
+        android:name="com.polish.polishmovies.ui.Details"
+        android:label="Movie Details"
+        tools:layout="@layout/fragment_details" />
+</navigation>

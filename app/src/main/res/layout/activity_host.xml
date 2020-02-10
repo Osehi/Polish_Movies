@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Host">
+
+    <fragment
+        android:id="@+id/my_nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/content_graph" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayoutId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/my_nav_host_fragment"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#ffffff"
+        app:tabMaxWidth="0dp"
+        app:tabMode="fixed"
+        app:tabTextColor="#ffffff" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPagerId"
+        android:layout_width="409dp"
+        android:layout_height="681dp"
+        android:layout_marginTop="2dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:layout_constraintBottom_toBottomOf="@+id/my_nav_host_fragment"
+        app:layout_constraintEnd_toEndOf="@+id/my_nav_host_fragment"
+        app:layout_constraintStart_toStartOf="@+id/my_nav_host_fragment"
+        app:layout_constraintTop_toBottomOf="@+id/tablayoutId" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarId"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tablayoutId"
+        app:layout_constraintStart_toStartOf="@+id/tablayoutId"
+        app:layout_constraintTop_toTopOf="@+id/my_nav_host_fragment"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:titleTextColor="#ffffff" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
