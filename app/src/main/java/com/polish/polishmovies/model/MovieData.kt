@@ -2,40 +2,32 @@ package com.polish.polishmovies.model
 
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 import kotlinx.android.parcel.Parcelize
 
+@Entity
 @Parcelize
 data class MovieData(
 
-    val adult: Boolean,
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0,
 
-    val backdropPath: String,
+    var originalLanguage: String,
 
-    val genreIds: List<Int>,
+    var overview: String,
 
-    val id: Int,
+    var posterPath: String,
 
-    val originalLanguage: String,
+    var releaseDate: String,
 
-    val originalTitle: String,
+    var title: String,
 
-    val overview: String,
+    var voteAverage: Double
 
-    val popularity: Double,
 
-    val posterPath: String,
-
-    val releaseDate: String,
-
-    val title: String,
-
-    val video: Boolean,
-
-    val voteAverage: Int,
-
-    val voteCount: Int
 
 ):Parcelable {
-//    var isFavourite:Boolean?
+   var isFavourite:Boolean? = null
 }

@@ -1,15 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.Details">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+        <variable
+            name="Movies"
+            type="com.polish.polishmovies.model.Movies" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_marginTop="56dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:padding="16dp"
+        tools:context=".ui.Details">
 
-</FrameLayout>
+
+        <ImageView
+            android:id="@+id/detailedImagePosterId"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:src="@{Movies.posterPath}"
+            tools:src="@drawable/thefather"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/detailedTitleId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/righteous"
+            android:text="@{Movies.title}"
+            tools:text="@string/title"
+            android:textSize="@dimen/detail_textsize"
+            app:layout_constraintBottom_toTopOf="@+id/detailedYearId"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailedImagePosterId" />
+
+        <TextView
+            android:id="@+id/detailedYearId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/righteous"
+            android:text="@{Movies.releaseDate}"
+            tools:text="@string/release_year"
+            android:textSize="@dimen/detail_textsize"
+            app:layout_constraintBottom_toTopOf="@+id/detailedOverviewId"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailedTitleId" />
+
+        <TextView
+            android:id="@+id/detailedOverviewId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/righteous"
+            android:text="@{Movies.overview}"
+            tools:text="@string/overview"
+            android:textSize="@dimen/detail_textsize"
+            app:layout_constraintBottom_toTopOf="@+id/buttonDetailedId"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailedYearId" />
+
+        <Button
+            android:id="@+id/buttonDetailedId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/righteous"
+            android:text="@string/add_favourite"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/detail_textsize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailedOverviewId" />
+
+        <TextView
+            android:id="@+id/voteDetailedId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/righteous"
+            android:text='@{""+Movies.voteAverage}'
+            android:textSize="@dimen/detail_textsize"
+            app:layout_constraintEnd_toStartOf="@+id/detailedFavouriteId"
+            app:layout_constraintTop_toBottomOf="@+id/detailedImagePosterId"
+            tools:text="@string/vote" />
+
+        <ImageView
+            android:id="@+id/detailedFavouriteId"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_favorite"
+            app:layout_constraintBottom_toBottomOf="@+id/voteDetailedId"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/voteDetailedId"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

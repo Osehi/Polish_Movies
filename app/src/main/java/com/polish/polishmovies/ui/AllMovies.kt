@@ -1,21 +1,23 @@
 package com.polish.polishmovies.ui
 
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 
-import com.polish.polishmovies.R
-import com.polish.polishmovies.model.MovieData
-import com.polish.polishmovies.network.MovieService
-import com.polish.polishmovies.network.ServiceBuilder
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.polish.polishmovies.adapter.AllMoviesAdapter
+import com.polish.polishmovies.databinding.FragmentAllMoviesBinding
+import com.polish.polishmovies.model.Movies
+
+import com.polish.polishmovies.viewModel.AllMoviesViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -23,33 +25,39 @@ import retrofit2.Response
 class AllMovies : Fragment() {
 
     lateinit var allMovies:Button
+    private lateinit var allMoviesViewModel:AllMoviesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_all_movies, container, false)
+//        val view = inflater.inflate(R.layout.fragment_all_movies, container, false)
+        val binding = FragmentAllMoviesBinding.inflate(inflater, container, false)
 
-        // rhe call
-        val movieService = ServiceBuilder.builderService(MovieService::class.java)
-        val requestCall = movieService.getMovies(sortBy = "popularity.desc", apiKey = "febc8ea7e2a2c740f57ba1d0d92204f8")
+        allMoviesViewModel = ViewModelProvider(this).get(AllMoviesViewModel::class.java)
 
-        requestCall.enqueue(object: Callback<List<MovieData>> {
-            override fun onResponse(
-                call: Call<List<MovieData>>,
-                response: Response<List<MovieData>>
-            ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val recyclerView = binding.recyclerViewAllMoviesID
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+        var adapter = AllMoviesAdapter(AllMoviesAdapter.OnClickListener {movies->
+            val action = TabHostDirections.actionTabHostToDetails2(movies)
+            findNavController().navigate(action)
+        },context!! )
+
+
+        recyclerView.adapter = adapter
+
+        allMoviesViewModel.allMovies.observe(viewLifecycleOwner, Observer {
+            it?.let {
+
+                adapter.submitList(it)
             }
-
-            override fun onFailure(call: Call<List<MovieData>>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
         })
 
-        return view
+
+
+        return binding.root
 
     }
 

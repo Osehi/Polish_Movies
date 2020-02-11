@@ -1,31 +1,38 @@
 package com.polish.polishmovies.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.polish.polishmovies.databinding.MovieItemBinding
 import com.polish.polishmovies.model.MovieData
+import com.polish.polishmovies.model.Movies
+import com.polish.polishmovies.utils.IMAGE_BASE_URL
+import kotlinx.coroutines.withContext
 
-class AllMoviesAdapter(private val onClickListener:OnClickListener):ListAdapter<MovieData, AllMoviesAdapter.MovieDataViewHolder>(DiffCallback) {
+class AllMoviesAdapter(val onClickListener:OnClickListener, val context:Context):ListAdapter<Movies, AllMoviesAdapter.MovieDataViewHolder>(DiffCallback) {
 
 
-    class MovieDataViewHolder(private var binding:MovieItemBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(movieData: MovieData){
-            binding.movieData = movieData
+    class MovieDataViewHolder( var binding:MovieItemBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bind(movies: Movies){
+            binding.movies = movies
 
             binding.executePendingBindings()
+
+
         }
 
     }
 
-    companion object DiffCallback:DiffUtil.ItemCallback<MovieData>(){
-        override fun areItemsTheSame(oldItem: MovieData, newItem: MovieData): Boolean {
+    companion object DiffCallback:DiffUtil.ItemCallback<Movies>(){
+        override fun areItemsTheSame(oldItem: Movies, newItem: Movies): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: MovieData, newItem: MovieData): Boolean {
+        override fun areContentsTheSame(oldItem: Movies, newItem: Movies): Boolean {
             return oldItem.id == newItem.id
         }
 
@@ -36,16 +43,24 @@ class AllMoviesAdapter(private val onClickListener:OnClickListener):ListAdapter<
     }
 
     override fun onBindViewHolder(holder: MovieDataViewHolder, position: Int) {
-        val movieData = getItem(position)
+        val movies = getItem(position)
         holder.itemView.setOnClickListener {
-            onClickListener.onClick(movieData)
+            onClickListener.onClick(movies)
+            Glide.with(context).load(IMAGE_BASE_URL+"w500"+movies.posterPath)
+                .into(holder.binding.contactAvater)
+//            Glide.with(context).load(IMAGE_BASE_URL + "w150" +movies.posterPath)
+//                .into(holder.binding.contactAvater)
         }
-        holder.bind(movieData)
+        holder.bind(movies)
     }
 
 
-    class OnClickListener(val clickListener:(movieData:MovieData) -> Unit){
-        fun onClick(movieData: MovieData) = clickListener(movieData)
+    class OnClickListener(val clickListener:(movies:Movies) -> Unit){
+        fun onClick(movies: Movies) = clickListener(movies)
+    }
+
+    interface ItemClickListener{
+        fun onItemClickListener(i : Int)
     }
 }
 

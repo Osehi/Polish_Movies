@@ -1,8 +1,11 @@
 package com.polish.polishmovies.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Movies(
     val adult: Boolean,
     @SerializedName("backdrop_path")
@@ -23,7 +26,7 @@ data class Movies(
     val title: String,
     val video: Boolean,
     @SerializedName("vote_average")
-    val voteAverage: Int,
+    val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+):Parcelable

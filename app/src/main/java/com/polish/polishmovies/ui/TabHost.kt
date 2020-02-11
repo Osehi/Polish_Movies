@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 
 import com.polish.polishmovies.R
+import com.polish.polishmovies.adapter.AllMoviesAdapter
 import com.polish.polishmovies.adapter.DPagerAdapter
 
 /**
@@ -43,6 +45,7 @@ class TabHost : Fragment() {
 
         return view
     }
+
 
 
 }

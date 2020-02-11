@@ -11,4 +11,9 @@
     <string name="vote_average">8.0</string>
     <string name="year_release">Year of Release</string>
     <string name="movie_poster">Movie Poster</string>
+    <string name="release_year">Year</string>
+    <string name="title">Title</string>
+    <string name="overview">Overview</string>
+    <string name="add_favourite">Add Favourite</string>
+    <string name="vote">8.0</string>
 </resources>

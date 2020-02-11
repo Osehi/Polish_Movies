@@ -5,14 +5,13 @@
 
     <data>
         <variable
-            name="MovieData"
-            type="com.polish.polishmovies.model.MovieData" />
+            name="Movies"
+            type="com.polish.polishmovies.model.Movies" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/movie_card_container"
@@ -20,26 +19,32 @@
             android:layout_height="140dp"
             android:layout_gravity="center"
             android:layout_marginTop="70dp"
-            app:cardBackgroundColor="@color/avaterBgColor"
-            app:cardCornerRadius="15dp"
+            app:cardBackgroundColor="@color/avatarBgColor"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/movie_title_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="184dp"
+                    android:layout_marginStart="170dp"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/righteous"
-                    android:text="Fight Club"
-                    android:textSize="15sp"
+                    android:fontFamily="@font/panton_bold"
+                    android:text="@{Movies.title}"
+                    tools:text="Fight Club"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,9 +55,10 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="25dp"
-                    android:fontFamily="@font/righteous"
-                    android:text="8.0"
-                    android:textSize="18sp"
+                    android:fontFamily="@font/panton_bold"
+                    android:text='@{""+Movies.voteAverage}'
+                    tools:text="8.0"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/movie_title_id"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -64,9 +70,9 @@
                     android:id="@+id/movie_language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="184dp"
+                    android:layout_marginStart="170dp"
                     android:layout_marginTop="8dp"
-                    android:fontFamily="@font/righteous"
+                    android:fontFamily="@font/panton_bold_regular"
                     android:text="Language"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -78,26 +84,28 @@
                     android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="24dp"
-                    app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                    app:cardBackgroundColor="@color/languageBorderColor"
                     app:cardCornerRadius="5dp"
+                    app:cardElevation="0dp"
+                    app:cardPreventCornerOverlap="false"
                     app:layout_constraintBottom_toBottomOf="@+id/movie_language"
-                    app:layout_constraintStart_toEndOf="@+id/movie_language"
-                    >
+                    app:layout_constraintStart_toEndOf="@+id/movie_language">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/movie_language_container"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginRight="1.2dp"
-                        android:layout_marginLeft="1.2dp"
-                        android:layout_marginBottom="1.2dp"
-                        android:layout_marginTop="1.2dp"
                         android:layout_gravity="center"
-                        app:cardBackgroundColor="@color/cardview_light_background"
+                        android:layout_marginLeft="1.2dp"
+                        android:layout_marginTop="1.2dp"
+                        android:layout_marginRight="1.2dp"
+                        android:layout_marginBottom="1.2dp"
+                        app:cardBackgroundColor="@color/avatarBgColor"
                         app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp"
+                        app:cardPreventCornerOverlap="false"
                         app:layout_constraintBottom_toBottomOf="@+id/movie_language_container_border"
-                        app:layout_constraintStart_toEndOf="@+id/movie_language_container_border"
-                        >
+                        app:layout_constraintStart_toEndOf="@+id/movie_language_container_border">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -105,19 +113,19 @@
 
                             <TextView
                                 android:id="@+id/movie_language_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/righteous"
-                                android:text="EN"
+                                android:layout_width="14dp"
+                                android:layout_height="13dp"
+                                android:fontFamily="@font/panton_bold_regular"
+                                android:text="@{Movies.originalLanguage}"
                                 android:textSize="12sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:text="EN" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.cardview.widget.CardView>
-
 
 
                 </androidx.cardview.widget.CardView>
@@ -127,9 +135,9 @@
                     android:id="@+id/movie_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="184dp"
+                    android:layout_marginStart="170dp"
                     android:layout_marginTop="8dp"
-                    android:fontFamily="@font/righteous"
+                    android:fontFamily="@font/panton_bold_regular"
                     android:text="Year"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -142,6 +150,8 @@
                     android:layout_gravity="center"
                     app:cardBackgroundColor="@color/colorPrimaryDark"
                     app:cardCornerRadius="5dp"
+                    app:cardElevation="0dp"
+                    app:cardPreventCornerOverlap="false"
                     app:layout_constraintBottom_toBottomOf="@+id/movie_year"
                     app:layout_constraintStart_toStartOf="@+id/movie_language_container_border">
 
@@ -154,8 +164,10 @@
                         android:layout_marginTop="1.2dp"
                         android:layout_marginRight="1.2dp"
                         android:layout_marginBottom="1.2dp"
-                        app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                        app:cardBackgroundColor="@color/avatarBgColor"
                         app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp"
+                        app:cardPreventCornerOverlap="false"
                         app:layout_constraintBottom_toBottomOf="@+id/movie_language_container_border"
                         app:layout_constraintStart_toEndOf="@+id/movie_language_container_border">
 
@@ -167,14 +179,14 @@
                                 android:id="@+id/movie_year_id"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/righteous"
-                                android:textColor="@android:color/white"
-                                android:text="2019"
+                                android:fontFamily="@font/panton_bold_regular"
+                                android:text="@{Movies.releaseDate}"
                                 android:textSize="12sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:text="2019" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.cardview.widget.CardView>
@@ -183,30 +195,31 @@
                 </androidx.cardview.widget.CardView>
 
 
-                <TextView
-                    android:id="@+id/movie_overview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="184dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/righteous"
-                    android:text="Overview"
-                    android:textSize="13sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/movie_year" />
+<!--                <TextView-->
+<!--                    android:id="@+id/movie_overview"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="170dp"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:fontFamily="@font/panton_bold_regular"-->
+<!--                    android:text="Overview"-->
+<!--                    android:textSize="13sp"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/movie_year" />-->
 
-                <TextView
-                    android:id="@+id/movie_overview_summary"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/righteous"
-                    android:text="Lurem ipsum text on summary Lurem ipsum text on summ..."
-                    android:textSize="8sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/movie_overview"
-                    app:layout_constraintTop_toBottomOf="@+id/movie_year_container_border" />
+<!--                <TextView-->
+<!--                    android:id="@+id/movie_overview_summary"-->
+<!--                    android:layout_width="120dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:fontFamily="@font/panton_regular"-->
+<!--                    android:text="@{Movies.overview}"-->
+<!--                    tools:text="Lurem ipsum text on summary Lurem ipsum text on summ..."-->
+<!--                    android:textSize="8sp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.388"-->
+<!--                    app:layout_constraintStart_toEndOf="@+id/movie_overview"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/movie_year_container_border" />-->
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -216,15 +229,17 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/movie_poster_container"
-            android:layout_width="140dp"
+            android:layout_width="120dp"
             android:layout_height="160dp"
             android:layout_gravity="center"
             android:layout_marginStart="25dp"
             android:layout_marginBottom="20dp"
+            app:cardElevation="0dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true"
             app:cardBackgroundColor="@color/colorPrimaryDark"
-            app:cardCornerRadius="15dp"
+            app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/movie_card_container"
-            app:layout_constraintStart_toRightOf="@+id/movie_card_container"
             app:layout_constraintStart_toStartOf="@+id/movie_card_container">
 
             <ImageView
@@ -233,6 +248,8 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/movie_poster"
                 android:scaleType="fitXY"
+                tools:src="@drawable/thefather"
+                android:src="@{Movies.posterPath}"
                 tools:srcCompat="@drawable/thefather" />
 
         </androidx.cardview.widget.CardView>
