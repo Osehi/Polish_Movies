@@ -10,4 +10,5 @@
     <string name="movie_title">Movie Title</string>
     <string name="vote_average">8.0</string>
     <string name="year_release">Year of Release</string>
+    <string name="movie_poster">Movie Poster</string>
 </resources>
