@@ -17,5 +17,9 @@
         android:id="@+id/details2"
         android:name="com.polish.polishmovies.ui.Details"
         android:label="Movie Details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="Movies"
+            app:argType="com.polish.polishmovies.model.Movies" />
+    </fragment>
 </navigation>
