@@ -46,10 +46,10 @@ class AllMoviesAdapter(val onClickListener:OnClickListener, val context:Context)
         val movies = getItem(position)
         holder.itemView.setOnClickListener {
             onClickListener.onClick(movies)
-            Glide.with(context).load(IMAGE_BASE_URL+"w500"+movies.posterPath)
+            Glide.with(context)
+                .load(IMAGE_BASE_URL+"w154"+movies.posterPath)
                 .into(holder.binding.contactAvater)
-//            Glide.with(context).load(IMAGE_BASE_URL + "w150" +movies.posterPath)
-//                .into(holder.binding.contactAvater)
+
         }
         holder.bind(movies)
     }

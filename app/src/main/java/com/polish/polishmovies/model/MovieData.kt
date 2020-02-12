@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 
 import kotlinx.android.parcel.Parcelize
 
-@Entity
+@Entity(tableName = "movieDataFavourite_table")
 @Parcelize
 data class MovieData(
 
@@ -24,10 +24,12 @@ data class MovieData(
 
     var title: String,
 
-    var voteAverage: Double
+    var voteAverage: Double,
+
+    var isFavourite:Boolean?
 
 
 
 ):Parcelable {
-   var isFavourite:Boolean? = null
+
 }
