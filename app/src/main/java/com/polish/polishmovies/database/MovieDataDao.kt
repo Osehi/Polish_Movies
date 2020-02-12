@@ -11,12 +11,12 @@ import com.polish.polishmovies.model.MovieData
 interface MovieDataDao {
 
     @Insert
-    fun insertFavorite(movieData: MovieData)
+   suspend fun insertFavorite(movieData: MovieData)
 
     @Delete
-    fun deleteFavorite(movieData:MovieData)
+   suspend fun deleteFavorite(movieData:MovieData)
 
-    @Query("SELECT * FROM movieDataFavourite_table  ORDER BY id DESC")
-    fun getAllFavorite(): LiveData<MovieData>
+    @Query("SELECT * FROM movieDataFavourite_table ORDER BY id DESC")
+    fun getAllFavorite(): LiveData<List<MovieData>>
 
 }

@@ -19,8 +19,8 @@ object MovieDataRepository {
         withContext(Dispatchers.IO){
             try {
                 data = movieDataApiService.getResponse("popularity.desc", API_KEY).await().movies
-                Log.d("NETWORK CALL", "${data}")
-                println(data)
+//                Log.d("NETWORK CALL", "${data}")
+
             }catch (t: Throwable){
                 Log.e("Repository", t.message)
 

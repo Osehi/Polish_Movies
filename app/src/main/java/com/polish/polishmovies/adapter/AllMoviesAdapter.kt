@@ -10,7 +10,10 @@ import com.bumptech.glide.Glide
 import com.polish.polishmovies.databinding.MovieItemBinding
 import com.polish.polishmovies.model.MovieData
 import com.polish.polishmovies.model.Movies
+import com.polish.polishmovies.utils.GlideApp
+
 import com.polish.polishmovies.utils.IMAGE_BASE_URL
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.withContext
 
 class AllMoviesAdapter(val onClickListener:OnClickListener, val context:Context):ListAdapter<Movies, AllMoviesAdapter.MovieDataViewHolder>(DiffCallback) {
@@ -19,6 +22,11 @@ class AllMoviesAdapter(val onClickListener:OnClickListener, val context:Context)
     class MovieDataViewHolder( var binding:MovieItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(movies: Movies){
             binding.movies = movies
+
+            // set image on the recyclerView
+            Picasso.get()
+                .load(IMAGE_BASE_URL+"w154"+movies.posterPath)
+                .into(binding.contactAvater)
 
             binding.executePendingBindings()
 
@@ -46,11 +54,16 @@ class AllMoviesAdapter(val onClickListener:OnClickListener, val context:Context)
         val movies = getItem(position)
         holder.itemView.setOnClickListener {
             onClickListener.onClick(movies)
-            Glide.with(context)
-                .load(IMAGE_BASE_URL+"w154"+movies.posterPath)
-                .into(holder.binding.contactAvater)
 
         }
+//        GlideApp.with(context)
+//            .load(IMAGE_BASE_URL+"w154"+movies.posterPath)
+//            .into(holder.binding.contactAvater)
+
+//        Glide.with(context).load(IMAGE_BASE_URL+"w154"+movies.posterPath)
+//            .into(holder.binding.contactAvater)
+
+
         holder.bind(movies)
     }
 
@@ -59,9 +72,7 @@ class AllMoviesAdapter(val onClickListener:OnClickListener, val context:Context)
         fun onClick(movies: Movies) = clickListener(movies)
     }
 
-    interface ItemClickListener{
-        fun onItemClickListener(i : Int)
-    }
+
 }
 
 
