@@ -24,12 +24,12 @@ data class MovieData(
 
     var title: String,
 
-    var voteAverage: Double,
+    var voteAverage: Double
 
-    var isFavourite:Boolean?
+
 
 
 
 ):Parcelable {
-
+    var isFavorite:Boolean? = null
 }

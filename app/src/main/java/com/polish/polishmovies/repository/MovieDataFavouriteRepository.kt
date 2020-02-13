@@ -6,11 +6,11 @@ import com.polish.polishmovies.database.MovieDataDao
 import com.polish.polishmovies.database.MovieDataDatabase
 import com.polish.polishmovies.model.MovieData
 import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-class MovieDataFavouriteRepository(application: Application)  {
+class MovieDataFavouriteRepository(application: Application):CoroutineScope  {
 
-//    private var viewModelJob = Job()
-//    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+
 
     private var movieDataDao:MovieDataDao
 
@@ -18,35 +18,40 @@ class MovieDataFavouriteRepository(application: Application)  {
 
     init {
 
-        val database:MovieDataDatabase = MovieDataDatabase.getInstance(application.applicationContext)
+//        val database:MovieDataDatabase = MovieDataDatabase.getInstance(application.applicationContext)
+        val database = MovieDataDatabase.getInstance(application)
 
         movieDataDao = database.movieDataDao()
-
 
 //        allFavorite = movieDataDao.getAllFavorite()
     }
 
-   suspend  fun getAllFavorite(): LiveData<List<MovieData>>? {
-       var data: LiveData<List<MovieData>>? = null
+    fun getAllFavorite() = movieDataDao.getAllFavorite()
+
+    fun insertFavorite(movieData:MovieData){
+        launch { insertFavoriteOffUiThread(movieData) }
+    }
+
+    fun deleteFavorite(movieData:MovieData){
+        launch { deleteFavoriteOffUiThread(movieData) }
+    }
+
+
+    private suspend fun insertFavoriteOffUiThread(movieData:MovieData){
         withContext(Dispatchers.IO){
-            data = movieDataDao.getAllFavorite()
+            movieDataDao.insertFavorite(movieData)
         }
-       return data
-    }
-
-   suspend fun insertFavorite(movieData: MovieData){
-       withContext(Dispatchers.IO){
-           movieDataDao.insertFavorite(movieData)
-       }
-    }
-
-   suspend fun deleteFavorite(movieData:MovieData){
-       withContext(Dispatchers.IO){
-           movieDataDao.deleteFavorite(movieData)
-       }
     }
 
 
+    private suspend fun deleteFavoriteOffUiThread(movieData:MovieData){
+        withContext(Dispatchers.IO){
+            movieDataDao.deleteFavorite(movieData)
+        }
+    }
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main
 
 
 }

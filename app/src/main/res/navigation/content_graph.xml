@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_tabHost_to_details2"
             app:destination="@id/details2" />
+        <argument
+            android:name="Movies"
+            app:argType="com.polish.polishmovies.model.Movies" />
     </fragment>
     <fragment
         android:id="@+id/details2"
@@ -21,5 +24,8 @@
         <argument
             android:name="Movies"
             app:argType="com.polish.polishmovies.model.Movies" />
+        <action
+            android:id="@+id/action_details2_to_tabHost"
+            app:destination="@id/tabHost" />
     </fragment>
 </navigation>

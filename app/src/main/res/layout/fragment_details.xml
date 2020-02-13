@@ -40,6 +40,7 @@
                 android:text="@{Movies.title}"
                 android:textSize="@dimen/detail_textsize"
                 app:layout_constraintBottom_toTopOf="@+id/detailedYearId"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/detailedImagePosterId"
                 tools:text="@string/title" />
@@ -51,8 +52,9 @@
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/righteous"
                 android:text="@{Movies.releaseDate}"
-                android:textSize="@dimen/detail_textsize"
+                android:textSize="@dimen/release_date"
                 app:layout_constraintBottom_toTopOf="@+id/detailedOverviewId"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/detailedTitleId"
                 tools:text="@string/release_year" />
@@ -62,16 +64,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:fontFamily="@font/righteous"
+                android:fontFamily="@font/aubrey"
                 android:text="@{Movies.overview}"
-                android:textSize="@dimen/detail_textsize"
-                app:layout_constraintBottom_toTopOf="@+id/buttonDetailedId"
+                android:textSize="@dimen/overview_textSize"
+                app:layout_constraintBottom_toTopOf="@+id/buttonDetailedFavoriteId"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/detailedYearId"
                 tools:text="@string/overview" />
 
             <Button
-                android:id="@+id/buttonDetailedId"
+                android:id="@+id/buttonDetailedFavoriteId"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
