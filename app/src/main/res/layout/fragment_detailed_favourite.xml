@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
-            name="Movies"
-            type="com.polish.polishmovies.model.Movies" />
+            name="MovieData"
+            type="com.polish.polishmovies.model.MovieData" />
     </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="16dp"
+            android:layout_marginTop="56dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-            android:padding="16dp"
-            tools:context=".ui.Details">
-
+            tools:context=".ui.DetailedFavourite">
 
             <ImageView
                 android:id="@+id/detailedImagePosterId"
@@ -37,12 +37,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/righteous"
-                android:text="@{Movies.title}"
+                android:text="@{MovieData.title}"
                 android:textSize="@dimen/detail_textsize"
                 app:layout_constraintBottom_toTopOf="@+id/detailedYearId"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/detailedImagePosterId"
+                app:layout_constraintTop_toBottomOf="@+id/voteDetailedId"
                 tools:text="@string/title" />
 
             <TextView
@@ -51,10 +52,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/righteous"
-                android:text="@{Movies.releaseDate}"
+                android:text="@{MovieData.releaseDate}"
                 android:textSize="@dimen/release_date"
                 app:layout_constraintBottom_toTopOf="@+id/detailedOverviewId"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/detailedTitleId"
                 tools:text="@string/release_year" />
@@ -65,29 +67,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/cantarell"
-                android:text="@{Movies.overview}"
+                android:text="@{MovieData.overview}"
                 android:textSize="@dimen/overview_textSize"
-                app:layout_constraintBottom_toTopOf="@+id/buttonDetailedFavoriteId"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/detailedYearId"
                 tools:text="@string/overview" />
-
-            <Button
-                android:id="@+id/buttonDetailedFavoriteId"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="@color/colorPrimary"
-                android:fontFamily="@font/righteous"
-                android:text="@string/add_favourite"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/detail_textsize"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/detailedOverviewId" />
 
             <TextView
                 android:id="@+id/voteDetailedId"
@@ -97,7 +84,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="4dp"
                 android:fontFamily="@font/righteous"
-                android:text='@{""+Movies.voteAverage}'
+                android:text='@{""+MovieData.voteAverage}'
                 android:textSize="@dimen/detail_textsize"
                 app:layout_constraintEnd_toStartOf="@+id/detailedFavouriteId"
                 app:layout_constraintHorizontal_bias="0.5"
