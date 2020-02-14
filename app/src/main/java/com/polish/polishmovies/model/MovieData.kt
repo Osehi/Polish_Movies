@@ -4,6 +4,7 @@ package com.polish.polishmovies.model
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.IgnoredOnParcel
 
 import kotlinx.android.parcel.Parcelize
 
@@ -24,12 +25,17 @@ data class MovieData(
 
     var title: String,
 
-    var voteAverage: Double
+    var voteAverage: Double,
+
+    var isFavourite:Boolean
+
+
 
 
 
 
 
 ):Parcelable {
-    var isFavorite:Boolean? = null
+
+//    var isFavorite:Boolean? = null
 }

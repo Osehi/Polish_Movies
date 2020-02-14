@@ -13,7 +13,7 @@ interface MovieDataDao {
     @Delete
     fun deleteFavorite(movieData:MovieData)
 
-    @Query("SELECT * FROM movieDataFavourite_table ORDER BY id ASC")
+    @Query("SELECT * FROM movieDataFavourite_table ORDER BY id DESC")
    fun getAllFavorite(): LiveData<List<MovieData>>
 
 }

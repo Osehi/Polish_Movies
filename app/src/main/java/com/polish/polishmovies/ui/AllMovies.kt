@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.polish.polishmovies.adapter.AllMoviesAdapter
 import com.polish.polishmovies.databinding.FragmentAllMoviesBinding
+import com.polish.polishmovies.model.MovieData
 import com.polish.polishmovies.model.Movies
 
 import com.polish.polishmovies.viewModel.AllMoviesViewModel

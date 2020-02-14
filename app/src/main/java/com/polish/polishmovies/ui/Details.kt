@@ -42,8 +42,8 @@ class Details : Fragment() {
 
         movies = args.Movies
 //        val(id,title) = movies!!
-        var movieImage = IMAGE_BASE_URL+"w154"+movies!!.posterPath
-        val newMovie = MovieData(movies!!.id, movies!!.originalLanguage, movies!!.overview, movieImage, movies!!.releaseDate, movies!!.title, movies!!.voteAverage)
+//        var movieImage = IMAGE_BASE_URL+"w154"+movies!!.posterPath
+        val newMovie = MovieData(movies!!.id, movies!!.originalLanguage, movies!!.overview, movies!!.posterPath, movies!!.releaseDate, movies!!.title, movies!!.voteAverage,movies!!.isFavourite)
         binding.movies = movies
 
         // set the image to the view(on the detailed view)
