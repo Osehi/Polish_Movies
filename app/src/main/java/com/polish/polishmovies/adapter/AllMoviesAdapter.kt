@@ -56,12 +56,7 @@ class AllMoviesAdapter(val onClickListener:OnClickListener, val context:Context)
             onClickListener.onClick(movies)
 
         }
-//        GlideApp.with(context)
-//            .load(IMAGE_BASE_URL+"w154"+movies.posterPath)
-//            .into(holder.binding.contactAvater)
 
-//        Glide.with(context).load(IMAGE_BASE_URL+"w154"+movies.posterPath)
-//            .into(holder.binding.contactAvater)
 
 
         holder.bind(movies)

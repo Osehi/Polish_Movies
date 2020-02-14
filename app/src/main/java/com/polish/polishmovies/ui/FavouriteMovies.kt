@@ -49,11 +49,12 @@ class FavouriteMovies : Fragment() {
 
 //        val movie = MovieData(movie!!.id, movie!!.title, movie!!.overview, movie!!.posterPath, movie!!.releaseDate, movie!!.voteAverage.toString(),movie!!.isFavorite)
 
-        var adapter = DetailsMovieDataAdapter(DetailsMovieDataAdapter.OnClickListener{
-
-
-
-        })
+        var adapter = DetailsMovieDataAdapter(DetailsMovieDataAdapter.OnClickListener{MovieData ->
+            val action = TabHostDirections.actionTabHostToDetailedFavourite(MovieData)
+            findNavController().navigate(action)
+            Toast.makeText(context, "Favourite Movie", Toast.LENGTH_SHORT).show()
+            Log.d("Touch", "detailed")
+        }, context!!)
 
         recyclerview.adapter = adapter
 
@@ -64,7 +65,7 @@ class FavouriteMovies : Fragment() {
             }
         })
 
-
+    // swipe to left to delete item-list
        ItemTouchHelper(object :ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT){
            override fun onMove(
                recyclerView: RecyclerView,

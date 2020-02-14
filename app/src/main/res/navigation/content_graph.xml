@@ -15,6 +15,9 @@
         <argument
             android:name="Movies"
             app:argType="com.polish.polishmovies.model.Movies" />
+        <action
+            android:id="@+id/action_tabHost_to_detailedFavourite"
+            app:destination="@id/detailedFavourite" />
     </fragment>
     <fragment
         android:id="@+id/details2"
@@ -27,5 +30,14 @@
         <action
             android:id="@+id/action_details2_to_tabHost"
             app:destination="@id/tabHost" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailedFavourite"
+        android:name="com.polish.polishmovies.ui.DetailedFavourite"
+        android:label="Favourite Movie"
+        tools:layout="@layout/fragment_detailed_favourite">
+        <argument
+            android:name="MovieData"
+            app:argType="com.polish.polishmovies.model.MovieData" />
     </fragment>
 </navigation>
