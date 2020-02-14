@@ -3,4 +3,12 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="fontColor">#2B2B63</color>
+    <color name="colorContactIntro">#787893</color>
+    <color name="colorContactFields">#24255E</color>
+    <color name="contactColor">#3F3E44</color>
+    <color name="contactParentContainerColor">#e4e4e4</color>
+    <color name="avatarBgColor">#FFFFFF</color>
+    <color name="languageBorderColor">#ffbc02</color>
+    <color name="favorite_Ground">#f9f9f9</color>
 </resources>

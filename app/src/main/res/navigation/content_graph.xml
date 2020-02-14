@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_graph"
+    app:startDestination="@id/tabHost">
+    <fragment
+        android:id="@+id/tabHost"
+        android:name="com.polish.polishmovies.ui.TabHost"
+        android:label="Movie Viewer"
+        tools:layout="@layout/fragment_tab_host">
+        <action
+            android:id="@+id/action_tabHost_to_details2"
+            app:destination="@id/details2" />
+        <argument
+            android:name="Movies"
+            app:argType="com.polish.polishmovies.model.Movies" />
+        <action
+            android:id="@+id/action_tabHost_to_detailedFavourite"
+            app:destination="@id/detailedFavourite" />
+    </fragment>
+    <fragment
+        android:id="@+id/details2"
+        android:name="com.polish.polishmovies.ui.Details"
+        android:label="Movie Details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="Movies"
+            app:argType="com.polish.polishmovies.model.Movies" />
+        <action
+            android:id="@+id/action_details2_to_tabHost"
+            app:destination="@id/tabHost" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailedFavourite"
+        android:name="com.polish.polishmovies.ui.DetailedFavourite"
+        android:label="Favourite Movie"
+        tools:layout="@layout/fragment_detailed_favourite">
+        <argument
+            android:name="MovieData"
+            app:argType="com.polish.polishmovies.model.MovieData" />
+    </fragment>
+</navigation>

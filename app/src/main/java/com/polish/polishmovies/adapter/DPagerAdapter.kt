@@ -3,8 +3,8 @@ package com.polish.polishmovies.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.polish.polishmovies.activity.AllMovies
-import com.polish.polishmovies.activity.FavouriteMovies
+import com.polish.polishmovies.ui.AllMovies
+import com.polish.polishmovies.ui.FavouriteMovies
 
 class DPagerAdapter(fragMngr:FragmentManager):FragmentPagerAdapter(fragMngr, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     // this set the tab positions
