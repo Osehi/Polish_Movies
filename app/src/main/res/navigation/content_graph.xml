@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/tabHost"
         android:name="com.polish.polishmovies.ui.TabHost"
-        android:label="Movie Viewer"
+        android:label="Polish Movies"
         tools:layout="@layout/fragment_tab_host">
         <action
             android:id="@+id/action_tabHost_to_details2"

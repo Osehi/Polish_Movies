@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
@@ -30,6 +31,7 @@ import com.polish.polishmovies.viewModel.MovieDataViewModel
 class FavouriteMovies : Fragment() {
 
     var movie:Movies? = null
+
 
     lateinit var movieDataViewModel:MovieDataViewModel
 

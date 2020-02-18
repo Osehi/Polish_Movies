@@ -29,6 +29,10 @@ class Details : Fragment() {
     var movieImage:String? = null
     var movies:Movies? = null
     val args:DetailsArgs by navArgs()
+
+    lateinit var fav:ImageView
+    lateinit var favBlue:ImageView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,6 +41,7 @@ class Details : Fragment() {
 //        return inflater.inflate(R.layout.fragment_details, container, false)
 
         val binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        favBlue = binding.detailedFavouriteIdTrue
 
         movieDataViewModel = ViewModelProvider(this).get(MovieDataViewModel::class.java)
 
@@ -59,8 +64,10 @@ class Details : Fragment() {
 //            findNavController().navigate(action)
 
 //            Log.d("CLICKS","${newMovie}")
+            favBlue.visibility = View.VISIBLE
 
-            this.findNavController().navigateUp()
+
+//            this.findNavController().navigateUp()
         }
 
 
