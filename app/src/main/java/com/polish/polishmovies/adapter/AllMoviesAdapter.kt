@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.polish.polishmovies.R
 import com.polish.polishmovies.databinding.MovieItemBinding
 import com.polish.polishmovies.model.MovieData
 import com.polish.polishmovies.model.Movies
@@ -51,9 +52,12 @@ class AllMoviesAdapter(val onClickListener:OnClickListener, val context:Context)
     }
 
     override fun onBindViewHolder(holder: MovieDataViewHolder, position: Int) {
+
         val movies = getItem(position)
+
         holder.itemView.setOnClickListener {
             onClickListener.onClick(movies)
+
 
         }
 

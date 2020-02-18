@@ -109,13 +109,26 @@
                 android:id="@+id/detailedFavouriteId"
                 android:layout_width="30dp"
                 android:layout_height="0dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_favorite"
+                android:src="@drawable/ic_favorite_border_black_false"
                 app:layout_constraintBottom_toBottomOf="@+id/voteDetailedId"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.42"
                 app:layout_constraintStart_toEndOf="@+id/voteDetailedId"
-                app:layout_constraintTop_toTopOf="@+id/voteDetailedId" />
+                app:layout_constraintTop_toTopOf="@+id/voteDetailedId"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/detailedFavouriteIdTrue"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_favorite_blue"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/voteDetailedId"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.547"
+                app:layout_constraintStart_toEndOf="@+id/voteDetailedId"
+                app:layout_constraintTop_toTopOf="@+id/detailedFavouriteId"
+                app:layout_constraintVertical_bias="0.666" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

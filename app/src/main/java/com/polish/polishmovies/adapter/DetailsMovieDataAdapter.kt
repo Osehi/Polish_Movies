@@ -3,10 +3,12 @@ package com.polish.polishmovies.adapter
 import android.content.Context
 import android.media.Image
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.polish.polishmovies.R
 import com.polish.polishmovies.databinding.FavouriteItemBinding
 import com.polish.polishmovies.model.MovieData
 import com.polish.polishmovies.utils.IMAGE_BASE_URL
@@ -27,7 +29,9 @@ class DetailsMovieDataAdapter(val onClickListener:OnClickListener, val context:C
         val movieData = getItem(position)
         holder.itemView.setOnClickListener {
             onClickListener.onClick(movieData)
+
         }
+        holder.binding.favoriteStateTrueId.visibility = View.VISIBLE
         holder.bind(movieData)
     }
 
@@ -43,7 +47,7 @@ class DetailsMovieDataAdapter(val onClickListener:OnClickListener, val context:C
 
     }
 
-    class MovieData1ViewHolder(private var binding:FavouriteItemBinding):RecyclerView.ViewHolder(binding.root){
+    class MovieData1ViewHolder( var binding:FavouriteItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(movieData: MovieData){
             binding.movieData = movieData
 
