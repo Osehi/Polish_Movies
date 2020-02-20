@@ -18,48 +18,9 @@ class MovieDataViewModel(application: Application):AndroidViewModel(application)
 
      val allMovieData = repository.getAllFavorite()
 
-//    private var repository = MovieDataFavouriteRepository(application)
-//    private var viewModelJob = Job()
-//    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-//    private var _allMovieData = MutableLiveData<List<MovieData>>()
-//    val allMovieData
-//    get() = _allMovieData
 
-//    init {
-//
-////        uiScope.launch {
-////            allMovieData = repository.getAllFavorite()!!
-////        }
-//        getAllMovieData()
-//
-//    }
-
-//    private fun getAllMovieData(){
-//        uiScope.launch {
-//            _allMovieData.value = repository.getAllFavorite()
-//        }
-//    }
-//
-//
-//    fun insertFavorite(movieData: MovieData){
-//        uiScope.launch {
-//            repository.insertFavorite(movieData)
-//        }
-//    }
-//
-//    fun deleteFavorite(movieData:MovieData){
-//        uiScope.launch {
-//            repository.deleteFavorite(movieData)
-//        }
-//    }
-//
-//    override fun onCleared() {
-//        super.onCleared()
-//        viewModelJob.cancel()
-//    }
-
-    fun inserFavorite(movieData:MovieData){
+    fun insertFavorite(movieData:MovieData){
         repository.insertFavorite(movieData)
     }
 

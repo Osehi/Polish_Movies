@@ -14,6 +14,9 @@ import kotlinx.coroutines.launch
 
 class AllMoviesViewModel(application: Application) : AndroidViewModel(application){
 
+    private val _workingModel = MutableLiveData<Boolean>(true)
+    val workingModel:LiveData<Boolean> = _workingModel
+
     private val repository = MovieDataRepository
     // create a coroutinescope
     private val viewModelJob = Job()
