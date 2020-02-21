@@ -138,5 +138,8 @@ dependencies {
     // testing coroutine
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.1"
 
+    // mockk
+    testImplementation "io.mockk:mockk:1.9.3"
+
 
 }
