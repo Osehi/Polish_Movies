@@ -59,7 +59,7 @@ class Details : Fragment() {
 
         binding.buttonDetailedFavoriteId.setOnClickListener {
 
-            movieDataViewModel.inserFavorite(newMovie)
+            movieDataViewModel.insertFavorite(newMovie)
 //            val action = DetailsDirections.actionDetails2ToTabHost(movies!!)
 //            findNavController().navigate(action)
 

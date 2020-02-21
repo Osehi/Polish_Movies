@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
@@ -18,10 +16,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-import com.polish.polishmovies.R
-import com.polish.polishmovies.adapter.DetailsMovieDataAdapter
+import com.polish.polishmovies.adapter.FavouriteMovieDataAdapter
 import com.polish.polishmovies.databinding.FragmentFavouriteMoviesBinding
-import com.polish.polishmovies.model.MovieData
 import com.polish.polishmovies.model.Movies
 import com.polish.polishmovies.viewModel.MovieDataViewModel
 
@@ -51,7 +47,7 @@ class FavouriteMovies : Fragment() {
 
 //        val movie = MovieData(movie!!.id, movie!!.title, movie!!.overview, movie!!.posterPath, movie!!.releaseDate, movie!!.voteAverage.toString(),movie!!.isFavorite)
 
-        var adapter = DetailsMovieDataAdapter(DetailsMovieDataAdapter.OnClickListener{MovieData ->
+        var adapter = FavouriteMovieDataAdapter(FavouriteMovieDataAdapter.OnClickListener{ MovieData ->
             val action = TabHostDirections.actionTabHostToDetailedFavourite(MovieData)
             findNavController().navigate(action)
             Toast.makeText(context, "Favourite Movie", Toast.LENGTH_SHORT).show()
