@@ -18,13 +18,20 @@ class MovieDataViewModel(application: Application):AndroidViewModel(application)
 
      val allMovieData = repository.getAllFavorite()
 
+    // test data variables
+    var saveFavoriteMovieActivated = false
+    var deleteFavoriteMovieActivated = false
+
+
 
 
     fun insertFavorite(movieData:MovieData){
+        saveFavoriteMovieActivated = true
         repository.insertFavorite(movieData)
     }
 
     fun deleteFavorite(movieData:MovieData){
+        deleteFavoriteMovieActivated = true
         repository.deleteFavorite(movieData)
     }
 
