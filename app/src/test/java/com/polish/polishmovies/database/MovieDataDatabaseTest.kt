@@ -72,24 +72,7 @@ class MovieDataDatabaseTest {
         }
     }
 
-//    @Test
-//    fun `database can delete stored data`(){
-//
-//        runBlocking{
-//            launch(Dispatchers.Main){
-//                // add new data to database
-//                movieDataDao.insertFavorite(movieData)
-//
-//                // when
-//                movieDataDao.deleteFavorite(movieData)
-//
-//                // Then
-//                val outcome = movieDataDao.getAllFavorite()
-//                assertEquals(outcome.getOrAwaitValue().size, 0)
-//            }
-//        }
-//
-//    }
+
 
 
 }
